@@ -4,7 +4,7 @@
     <img src="https://i.imgur.com/WmMnSRt.png" alt="Trường Đại học Công nghệ Thông tin | University of Information Technology">
   </a>
 </p>
-<h1 align="center"><b>Máy Học</b></h>
+<h1 align="center"><b>MÁY HỌC</b></h>
 
 ## THÀNH VIÊN NHÓM
 
@@ -25,3 +25,7 @@
 ## ĐỒ ÁN CUỐI KÌ
 
 -   **Tên đề tài**: Hệ thống gán hastag cho bài post trên facebook.
+
+## SETUP
+
+- Download chromedriver tại [link](https://chromedriver.chromium.org/downloads)
