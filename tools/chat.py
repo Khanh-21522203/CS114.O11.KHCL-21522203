@@ -28,10 +28,10 @@ content2 = "4 nhóm phương pháp chính để phát hiện Outliers 🔥🔥�
 #     ],
 #     stream=False,
 # )
-file_path = "../data/dsmlvietnam.csv"
+file_path = "../data/crawl_data/dsmlvietnam.csv"
 import pandas as pd
 
-df = pd.read_csv("../data/dsmlvietnam.csv", sep='\t', index_col=0)
+df = pd.read_csv("../data/crawl_data/dsmlvietnam.csv", sep='\t', index_col=0)
 sub_df = df
 sub_df = sub_df.drop(axis=1, columns=['Links'])
 model = ['gpt-4', 'gpt-4-turbo']
