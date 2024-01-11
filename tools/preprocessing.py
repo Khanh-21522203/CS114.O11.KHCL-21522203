@@ -32,9 +32,9 @@ def word_segmentation(text):
     return word_tokenize(text)
     
 def denoise(text):
-    text = re.sub(r"[?!.,;:<>{}=~|\[\]()/#@\"\'\-\n]+", " ", text)
-    text = re.sub(r"\s+", " ", text)
-    return text
+	text = re.sub(r'[^\s\wáàảãạăắằẳẵặâấầẩẫậéèẻẽẹêếềểễệóòỏõọôốồổỗộơớờởỡợíìỉĩịúùủũụưứừửữựýỳỷỹỵđ_]',' ',text)
+	text = re.sub(r'\s+', ' ', text).strip()
+	return text
 def stopwords():
     with open('vietnamese-stopwords.txt', 'r') as f:
         vietnamese_stopwords = f.read().splitlines()
@@ -61,7 +61,4 @@ def preprocessing(text):
 if __name__=="__main__":
     # print(spell_correction("Lần này anh Phươngqyết xếp hàng mua bằng được 1 chiếc"))
     # print(word_segmentation("Bác sĩ bây giờ có thể thản nhiên báo tin bệnh nhân bị ung thư"))
-    print(preprocessing("Repo áp dụng hai models tốt nhất hiện nay trong việc phân loại điểm bất thường (hư hỏng hay trầy xước) của các vật thể công nghiệp \
-                                là FastFlow và PatchCore nhằm so sánh và cải thiện khả năng phân loại của models. Đề tài được xây dựng và bám sát hai bài nghiên cứu \
-                                là:Towards Total Recall in Industrial Anomaly Detection: [https://arxiv.org/abs/2106.08265]\
-                                FastFlow: Unsupervised Anomaly Detection and Localization via 2D Normalizing Flows: [https://arxiv.org/abs/2111.07677]"))
+    print(denoise("repo +  !@ !@$#@^%$%^(^&) /sa 2jijf bacij"))
