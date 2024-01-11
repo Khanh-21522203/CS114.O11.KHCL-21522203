@@ -35,13 +35,27 @@ def denoise(text):
     text = re.sub(r"[?!.,;:<>{}=~|\[\]()/#@\"\'\-\n]+", " ", text)
     text = re.sub(r"\s+", " ", text)
     return text
+def stopwords():
+    with open('vietnamese-stopwords.txt', 'r') as f:
+        vietnamese_stopwords = f.read().splitlines()
+    return vietnamese_stopwords
+    
+def remove_stopword(text):
+    with open('data/vietnamese-stopwords.txt', 'r', encoding='utf-8') as f:
+        vietnamese_stopwords = f.read().splitlines()
+    for word in vietnamese_stopwords:
+        text = re.sub(r'\b' + re.escape(word) + r'\b', "", text, flags=re.IGNORECASE)
+    return text
+
+
 def preprocessing(text):
     
     text = remove_emojis(text)
     text = remove_url(text)
     text = denoise(text)
-    text = spell_correction(text)
+    # text = spell_correction(text)
     text = lowercase(text)
+    text = remove_stopword(text)
     text = word_segmentation(text)
     return text
 if __name__=="__main__":
