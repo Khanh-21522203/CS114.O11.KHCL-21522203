@@ -22,17 +22,12 @@ def extract_hashtags(text):
 
     return hashtag_list, text
 
-df = pd.read_csv("data/crawl_data/dsmlvietnam.csv", sep='\t', index_col=0)
-df = df.drop(axis=1, columns=["Links"])
-df = df.dropna(subset=['Contents'])
-df["p_content"] = None
-df['old_hastag'] = None
-df['Hashtag'] = None
+df = pd.read_csv("data.csv", index_col=0)
+p_content = []
 for idx, content in enumerate(df["Contents"].apply(str)):
     content = remove_emojis(content)
     hashtags, content = extract_hashtags(content)
     content = preprocessing(content)
-    df["p_content"][idx] = content
-    df['old_hastag'][idx] = "\t".join(hashtags)
-
-df.to_csv("data/process_data/p_dsmlvietnam_preprocessing.csv", encoding='utf-8-sig', index=False)
+    p_content.append(content)
+df["Contents"] = p_content
+df.to_csv("data_final.csv", encoding='utf-8-sig', index=False)

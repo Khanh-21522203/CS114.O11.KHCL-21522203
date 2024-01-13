@@ -1,3 +1,5 @@
 g4f
 scikit-learn
 nltk
+tensorflow
+keras>=2.1.5
