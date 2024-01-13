@@ -3,12 +3,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 fname = ['data_dsmlvietnam.csv', 'data_mlcoban.csv'] # 50 - 48
-list_hashtag = ["#sharing", "#machine_learning", "#deep_learning", "#python", "#data", "#cv", "#nlp", "#math", "#Q&A", "#webinar"]
+list_hashtag = ["#sharing", "#machine_learning", "#deep_learning", "#python", "#data", "#cv", "#nlp", "#math", "#Q&A"]
 hashtag_dict = {hashtag: 0 for hashtag in list_hashtag}
 contents = []
 hashtags = []
 for fn in fname:
-    df = pd.read_csv(os.path.join('labeled', fn))
+    df = pd.read_csv(os.path.join('data/labeled', fn))
     for idx, row in df.iterrows():
         if not pd.isna(row["Hùng"]) or not pd.isna(row["Khánh"]) or not pd.isna(row["Cáp"]):
             if (idx >= 50 and fn == "data_dsmlvietnam.csv") or (idx >= 48 and fn == "data_mlcoban.csv"):
@@ -26,6 +26,8 @@ for fn in fname:
                             i = "#sharing"
                         elif i == "#deep_learining":
                             i = "#deep_learning"
+                        if i == "#webinar" and "#sharing" not in it_Hung:
+                            i = "#sharing"
                         if i in list_hashtag:
                             hashtag_dict[i] +=1
                             it_Hung.append(i)
@@ -47,6 +49,8 @@ for fn in fname:
                             i = "#sharing"
                         elif i == "#deep_learining":
                             i = "#deep_learning"
+                        if i == "#webinar" and "#sharing" not in it_Khanh:
+                            i = "#sharing"
                         if i in list_hashtag:
                             hashtag_dict[i] += 1
                             it_Khanh.append(i)
@@ -68,18 +72,118 @@ for fn in fname:
                             i = "#sharing"
                         elif i == "#deep_learining":
                             i = "#deep_learning"
+                        if i == "#webinar" and "#sharing" not in it_Cap:
+                            i = "#sharing"
                         if i in list_hashtag:
                             hashtag_dict[i] += 1
                             it_Cap.append(i)
                     if it_Cap:
                         contents.append(row["Contents"])
                         hashtags.append(it_Cap)
+            elif not pd.isna(row["Hùng"]) and not pd.isna(row["Khánh"]) and not pd.isna(row["Cáp"]):
+                it_Hung = []
+                for i in row["Hùng"].strip().split(","):
+                    i = i.strip()
+                    if i == "#pythonlibraries":
+                        i = "#python"
+                    elif i == "#pythonlibararies":
+                        i = "#python"
+                    elif i == "#deep_leaning":
+                        i = "#deep_learning"
+                    elif i == "Q&A":
+                        i = "#Q&A"
+                    elif i == "#webniar":
+                        i = "#webinar"
+                    elif i == "#machine_learing":
+                        i = "#machine_learning"
+                    elif i == "deep_learning":
+                        i = "#deep_learning"
+                    elif i == "#Q7A":
+                        i = "#Q&A"
+                    elif i == "#shairng":
+                        i = "#sharing"
+                    elif i == "#deep_learining":
+                        i = "#deep_learning"
+                    if i == "#webinar" and "#sharing" not in it_Hung:
+                        i = "#sharing"
+                    if i in list_hashtag:
+                        it_Hung.append(i)
+                    else:
+                        print(i)
+
+                it_Khanh = []
+                for i in row["Khánh"].strip().split(","):
+                    i = i.strip()
+                    if i == "#pythonlibraries":
+                        i = "#python"
+                    elif i == "#pythonlibararies":
+                        i = "#python"
+                    elif i == "Q&A":
+                        i = "#Q&A"
+                    elif i == "#deep_leaning":
+                        i = "#deep_learning"
+                    elif i == "#webniar":
+                        i = "#webinar"
+                    elif i == "#machine_learing":
+                        i = "#machine_learning"
+                    elif i == "deep_learning":
+                        i = "#deep_learning"
+                    elif i == "#Q7A":
+                        i = "#Q&A"
+                    elif i == "#shairng":
+                        i = "#sharing"
+                    elif i == "#deep_learining":
+                        i = "#deep_learning"
+                    if i == "#webinar" and "#sharing" not in it_Khanh:
+                        i = "#sharing"
+                    if i in list_hashtag:
+                        it_Khanh.append(i)
+                    else:
+                        print(i)
+
+                it_Cap = []
+                for i in row["Cáp"].strip().split(","):
+                    i = i.strip()
+                    if i == "#pythonlibraries":
+                        i = "#python"
+                    elif i == "#pythonlibararies":
+                        i = "#python"
+                    elif i == "Q&A":
+                        i = "#Q&A"
+                    elif i == "#deep_leaning":
+                        i = "#deep_learning"
+                    elif i == "#webniar":
+                        i = "#webinar"
+                    elif i == "#machine_learing":
+                        i = "#machine_learning"
+                    elif i == "deep_learning":
+                        i = "#deep_learning"
+                    elif i == "#Q7A":
+                        i = "#Q&A"
+                    elif i == "#shairng":
+                        i = "#sharing"
+                    elif i == "#deep_learining":
+                        i = "#deep_learning"
+                    if i == "#webinar" and "#sharing" not in it_Cap:
+                        i = "#sharing"
+                    if i in list_hashtag:
+                        it_Cap.append(i)
+                    else:
+                        print(i)
+
+                it_all = list(set(it_Hung + it_Cap + it_Khanh))
+                for i in it_all:
+                    hashtag_dict[i] += 1
+                if it_all:
+                    contents.append(row["Contents"])
+                    hashtags.append(it_all)
+
 data = {
     'Contents': contents,
     "Hashtags": hashtags
 }
 data = pd.DataFrame(data)
-data.to_csv("data.csv")
+data.to_csv("data.csv",index=False)
 
 # Extracting hashtags and values from the dictionary
 hashtags = list(hashtag_dict.keys())
