@@ -1,7 +1,5 @@
 import os.path
-import numpy as np
 import pandas as pd
-from sklearn.metrics import cohen_kappa_score
 from nltk.metrics.agreement import AnnotationTask
 from nltk.metrics import masi_distance
 fname = ['data_dsmlvietnam.csv', 'data_mlcoban.csv']
