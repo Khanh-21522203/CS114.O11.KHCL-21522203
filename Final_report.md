@@ -60,20 +60,44 @@ Dữ liệu được nhóm tự thu thập
   * Crawl dữ liệu trên 2 group: [Forum Machine Learning cơ bản](https://www.facebook.com/groups/machinelearningcoban) và [Group hỏi đáp Python, Data Science, Machine Learning, Deep Learning](https://www.facebook.com/groups/dsmlvietnam) 
 * **Khó khăn của việc thu thập dữ liệu:**
   * Do thu thập dữ liệu tự động, nên sẽ có nhiều bài viết nội dung không liên quan, bài viết rác
+* **Gán nhãn bộ dữ liệu**
+  * Quy trình gán nhãn bộ dữ liệu
+      <img src="https://github.com/Khanh-21522203/CS114.O11.KHCL-21522203/assets/117832185/2ce8b609-2f3f-494d-ab9b-18701655cc08"/>
+      <div style=width: 130px; align = center>Quy trình gán nhãn dữ liệu</div>
+  * Hướng dẫn gán nhãn dữ liệu
+      * Đĩnh nghĩa các nhãn dữ liệu
+        * #sharing : có nội dung chia sẻ kinh nghiệm, job, tài liệu, cuộc thi, webinar,..
+        * #machine_learning: có nội dung về các bài toán, thuật toán Machine Learning truyền thống như:  Linear Regression, Logistic Regression, scalar,... hoặc liên quan về road_map,..
+        * #deep_learning: có nội dung về các bài toán, thuật toán Deep Learning hiện đại như: LSTM, Transformer,..  hoặc liên quan về road map,..
+        * #python : có nội dung liên quan về code python, hoặc các thư viện hỗ trợ như  pytorch, tensorflow, pandas… 
+        * #data: có nội dung liên quan đến dữ liệu , xử lý dữ liệu ,.., hoặc liên quan về road map, nghề nghiệp về data
+        * #cv: có nội dung liên quan đến bài toán thuộc lĩnh vực Computer Vision, hoặc liên quan về road map, nghề nghiệp trong lĩnh vưc Computer Vision,.
+        * #nlp: có nội dung liên quan đến bài toán thuộc lĩnh việc NLP, hoặc liên quan về road map, nghề nhiệp trong lĩnh vực NLP,..
+        * #math: có nội dung liên quan đến kiến thức toán học như xác suất thống kê, đại số, giải tích,..
+        * #Q&A: có nội dung liên quan đến hỏi đáp về một số vấn đề trong lĩnh vực Computer Science
+      * Một số lưu ý khi gán nhãn:
+        * Bỏ qua các bài nội dung hoàn toàn bằng Tiếng Anh
+        * Bỏ qua các bài nội dung không liên quan đến nhãn
+        * Mỗi bài nội dung có thể có nhiều hashtag
+  * Tính độ đồng thuận
+      * Sử dụng công thức **Krippendorff's alpha** để tính độ đồng thuận
+        <div align="middle"> <img src="https://github.com/Khanh-21522203/CS114.O11.KHCL-21522203/assets/117832185/273d5fa5-a433-4468-a8f0-80afef486987"/> </div>
+      * Đánh giá trên thang đo độ đồng thuận Landis và Koch
+        <div align="middle"> <img src="https://github.com/Khanh-21522203/CS114.O11.KHCL-21522203/assets/117832185/c9687d25-0cb9-49d2-ad9e-09e289ba13c7" width="300"/> </div>
+      * Kết quả đánh giá gán nhãn của nhóm:
+          * Số người gán nhãn: 3
+          * Số mẫu dữ liệu: 89 mẫu
+          * Độ đồng thuận: 0.716
+          > => Theo thang đo của Landis và Koch, độ đồng thuận ở mức **substantial** do đó nhóm tiến hành gán nhãn toàn bộ
 * **Tổng quan về Bộ Dữ liệu:**
   *  Bộ dữ liệu: gồm 1282 mẫu dữ liệu
-  * Bộ dữ liệu test mà model hoàn toàn chưa từng “tiếp xúc” bao giờ:
- gồm 10 – 15 videos được quay với điều kiện ràng buộc Input vừa mới đề cập.
-  * Một tập dataset csv do nhóm tự đi thu thập trên mạng về, được cập nhật giá cụ thể và gần nhất, chủ yếu lấy từ Bách Hóa Xanh.
-  * Hoàn toàn do nhóm tự chụp, tự quay
-<p align="middle">
-  <img src="https://user-images.githubusercontent.com/55471582/128621876-d4095ceb-7709-4da4-ad0b-55e558ed43c2.png" width="100" />
-  <img src="https://user-images.githubusercontent.com/55471582/128621915-ea546a3b-349b-49fc-82df-879bc901d026.png" width="100" /> 
-  <img src="https://user-images.githubusercontent.com/55471582/128621922-a6ad9631-36fc-4e0e-84fd-6a12ea3a4e72.png" width="100" />
-  <img src="https://user-images.githubusercontent.com/55471582/128621963-eebc1685-daa8-455f-a02c-851be2a35eb7.png" width="100" />
-</p>
-<div style=width: 130px; align = center>Demo một số hình ảnh trong tập Dữ liệu</div>
-
+  * Thống kê dữ liệu sau khi gán nhãn
+    
+      <div align="middle"> <img src="https://github.com/Khanh-21522203/CS114.O11.KHCL-21522203/assets/117832185/4fc24414-80f3-44ff-ad32-d3f8bda3af85"/> </div>  
+      <div style=width: 130px; align = center>Thống kê dữ liệu sau khi gán nhãn</div>
+  * Thống kê về độ dài của các câu trong tập dữ liệu
+      <div align="middle"> <img src= "https://github.com/Khanh-21522203/CS114.O11.KHCL-21522203/assets/117832185/c9fe4358-acd0-4f3f-bb3a-d935aa070d8f"/> </div>  
+      <div style=width: 130px; align = center>Thống kê về độ dài của các câu</div>
 <h3> Nhận xét: </h3>
 <ol> 
   <li> Data nhóm hoàn toàn do thủ công tự chụp, thành viên trong nhóm đã thống nhất với nhau từ trước sẽ tạo nên một bộ dữ liệu “sạch” (clean data). </li>
