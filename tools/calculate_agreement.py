@@ -1,7 +1,7 @@
 import os.path
 import pandas as pd
 from nltk.metrics.agreement import AnnotationTask
-from nltk.metrics import masi_distance
+from nltk.metrics import masi_distance # mean absolute scaled Inter-rater = (1/N) * Σ_(i=1)^N |r_i - R_bar(trung bình mỗi tập) |
 fname = ['data_dsmlvietnam.csv', 'data_mlcoban.csv']
 list_hashtag = ["#sharing", "#machine_learning", "#deep_learning", "#python", "#data", "#cv", "#nlp", "#math", "#Q&A"]
 Hung = []
