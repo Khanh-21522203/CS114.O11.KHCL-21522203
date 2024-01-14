@@ -5,12 +5,12 @@ from sklearn.metrics import cohen_kappa_score
 from nltk.metrics.agreement import AnnotationTask
 from nltk.metrics import masi_distance
 fname = ['data_dsmlvietnam.csv', 'data_mlcoban.csv']
-list_hashtag = ["#sharing", "#machine_learning", "#deep_learning", "#python", "#data", "#cv", "#nlp", "#math", "#Q&A", "#webinar"]
+list_hashtag = ["#sharing", "#machine_learning", "#deep_learning", "#python", "#data", "#cv", "#nlp", "#math", "#Q&A"]
 Hung = []
 Khanh = []
 Cap = []
 for fn in fname:
-    df = pd.read_csv(os.path.join('labeled', fn))
+    df = pd.read_csv(os.path.join('data/labeled', fn))
     for idx, row in df.iterrows():
         if not pd.isna(row["Hùng"]) and not pd.isna(row["Khánh"]) and not pd.isna(row["Cáp"]):
             it_Hung = []
@@ -30,7 +30,7 @@ for fn in fname:
                     i = "#webinar"
                 elif i == "#pythonlibararies":
                     i = "#pythonlibraries"
-                if i == "#pythonlibraries":
+                elif i == "#pythonlibraries":
                     i = "#python"
                 if i in list_hashtag:
                     it_Hung.append(i)
@@ -88,4 +88,4 @@ task = AnnotationTask(distance = masi_distance)
 
 task.load_array(task_data)
 
-print(task.alpha())
+print("Độ đồng thuận: ", task.alpha()) # Độ đồng thuận:  0.7160200571070627
