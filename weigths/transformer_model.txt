@@ -1,0 +1,4 @@
+transformer_bceloss:
+https://drive.google.com/file/d/19l6bwRuowOfqA0nDRr3zE0UJCaedq2GG/view?usp=sharing
+transformer_2wayloss:
+https://drive.google.com/file/d/1f2tnjqjbzYLAoz8HwXG_efjah2MXctPI/view?usp=sharing
