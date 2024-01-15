@@ -129,7 +129,8 @@ Dữ liệu được nhóm tự thu thập
     * TF-IDF, BOW với mô hình Logistic Regression, SVM, Naive Bayes
     * LSTM
     * Transformer
-      Chi tiết xem (tại đây)[https://www.canva.com/design/DAF5i5ginJk/0iG2RNULtHUpxP3lhUzf1Q/edit?utm_content=DAF5i5ginJk&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton]
+  
+  Chi tiết xem (tại đây)[https://www.canva.com/design/DAF5i5ginJk/0iG2RNULtHUpxP3lhUzf1Q/edit?utm_content=DAF5i5ginJk&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton]
 <a name="ungdung"></a>
 # 5. Hướng Phát Triển Ứng Dụng Và Cải Tiến:
   * **Hướng phát triển trong tương lai:**
